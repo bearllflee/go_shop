@@ -8,3 +8,7 @@ MySQL:
   Config: sslmode=disable TimeZone=Asia/Shanghai
 App:
   Port: 8090
+Jwt:
+  Issuer: 牧牛火链
+  ExpireTime: 600
+  Secret: 牧牛火链
