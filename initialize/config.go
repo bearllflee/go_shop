@@ -12,7 +12,6 @@ import (
 
 func MustConfig() {
 	var config string
-	gin.SetMode(gin.TestMode)
 	flag.StringVar(&config, "c", "", "指定配置文件路径")
 	flag.Parse()
 	if config == "" { // 判断命令行参数是否指定了配置文件

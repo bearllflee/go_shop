@@ -1,7 +1,11 @@
 package global
 
-import "viper/config"
+import (
+	"gorm.io/gorm"
+	"viper/config"
+)
 
 var (
 	CONFIG config.Server
+	DB     *gorm.DB
 )

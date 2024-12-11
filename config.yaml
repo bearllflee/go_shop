@@ -3,9 +3,8 @@ MySQL:
   Port: 3306
   User: root
   Password: 292378
-  Database: test
-  Charset: utf8mb3
-  Config: sslmode=disable TimeZone=Asia/Shanghai
+  Database: go_shop
+  Config: charset=utf8mb4&parseTime=True&loc=Local
 App:
   Port: 8090
 Jwt:
