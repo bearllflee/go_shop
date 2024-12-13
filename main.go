@@ -1,8 +1,8 @@
 package main
 
 import (
-	"viper/global"
-	"viper/initialize"
+	"github.com/bearllflee/go_shop/global"
+	"github.com/bearllflee/go_shop/initialize"
 )
 
 func main() {

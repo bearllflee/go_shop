@@ -2,10 +2,11 @@ package initialize
 
 import (
 	"fmt"
+
+	"github.com/bearllflee/go_shop/global"
+	"github.com/bearllflee/go_shop/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"viper/global"
-	"viper/model"
 )
 
 func AutoMigrate(db *gorm.DB) error {

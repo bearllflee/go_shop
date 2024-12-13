@@ -1,9 +1,9 @@
 package middleware
 
 import (
+	"github.com/bearllflee/go_shop/model/response"
+	"github.com/bearllflee/go_shop/utils"
 	"github.com/gin-gonic/gin"
-	"viper/model/response"
-	"viper/utils"
 )
 
 func JwtMiddleware() gin.HandlerFunc {

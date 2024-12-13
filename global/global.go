@@ -1,8 +1,8 @@
 package global
 
 import (
+	"github.com/bearllflee/go_shop/config"
 	"gorm.io/gorm"
-	"viper/config"
 )
 
 var (

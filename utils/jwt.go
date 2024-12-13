@@ -2,10 +2,11 @@ package utils
 
 import (
 	"errors"
-	"github.com/golang-jwt/jwt/v4"
 	"time"
-	"viper/global"
-	"viper/model"
+
+	"github.com/bearllflee/go_shop/global"
+	"github.com/bearllflee/go_shop/model"
+	"github.com/golang-jwt/jwt/v4"
 )
 
 type Jwt struct {

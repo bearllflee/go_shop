@@ -1,8 +1,8 @@
 package utils
 
 import (
+	"github.com/bearllflee/go_shop/model"
 	"github.com/gin-gonic/gin"
-	"viper/model"
 )
 
 func GetToken(c *gin.Context) string {

@@ -9,4 +9,5 @@ type GoShopClaims struct {
 type BaseClaims struct {
 	Username string `json:"username"`
 	UserId   uint64 `json:"userId"`
+	RoleId   uint64 `json:"roleId"`
 }

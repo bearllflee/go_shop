@@ -2,9 +2,10 @@ package initialize
 
 import (
 	"fmt"
+
+	"github.com/bearllflee/go_shop/global"
+	"github.com/bearllflee/go_shop/router"
 	"github.com/gin-gonic/gin"
-	"viper/global"
-	"viper/router"
 )
 
 func MustRunWindowServer() {

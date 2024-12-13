@@ -1,6 +1,6 @@
 package model
 
-import "viper/global"
+import "github.com/bearllflee/go_shop/global"
 
 type User struct {
 	global.GSModel

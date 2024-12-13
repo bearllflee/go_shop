@@ -3,11 +3,12 @@ package initialize
 import (
 	"flag"
 	"fmt"
+	"os"
+
+	"github.com/bearllflee/go_shop/global"
 	"github.com/fsnotify/fsnotify"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
-	"os"
-	"viper/global"
 )
 
 func MustConfig() {

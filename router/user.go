@@ -1,8 +1,8 @@
 package router
 
 import (
+	"github.com/bearllflee/go_shop/api"
 	"github.com/gin-gonic/gin"
-	"viper/api"
 )
 
 type UserGroup struct {
