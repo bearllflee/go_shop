@@ -5,8 +5,10 @@ import (
 	"log"
 
 	"github.com/bearllflee/go_shop/global"
+	"github.com/bearllflee/go_shop/model"
 	"github.com/bearllflee/go_shop/model/request"
 	"github.com/bearllflee/go_shop/model/response"
+	"github.com/bearllflee/go_shop/utils"
 
 	"github.com/bearllflee/go_shop/service"
 
@@ -31,7 +33,22 @@ func Login(c *gin.Context) {
 			return
 		}
 	}
-	response.OkWithData(user, c)
+	// 生成token
+	jwt := utils.NewJwt()
+	claims := jwt.CreateClaims(model.BaseClaims{
+		UserId:       user.ID,
+		Username: user.Username,
+	})
+	token, err := jwt.GenerateToken(&claims)
+	if err != nil {
+		log.Println("生成token失败: ", err)
+		response.FailWithMessage("生成token失败", c)
+		return
+	}
+	response.OkWithData(&response.LoginResponse{
+		User:  user,
+		Token: token,
+	}, c)
 }
 
 func Register(c *gin.Context) {
