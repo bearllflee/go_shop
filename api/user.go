@@ -19,7 +19,7 @@ func Login(c *gin.Context) {
 	var req request.UserLoginRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		log.Println("参数错误: ", err)
-		response.FailWithMessage("参数错误", c)
+		response.FailWithMessage(utils.Translate(err), c)
 		return
 	}
 	user, err := service.UserServiceApp.Login(req)
@@ -54,8 +54,8 @@ func Login(c *gin.Context) {
 func Register(c *gin.Context) {
 	var req request.UserRegisterRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
-		log.Println("参数错误: ", err)
-		response.FailWithMessage("参数错误", c)
+		log.Println("参数错误: ", utils.Translate(err))
+		response.FailWithMessage(utils.Translate(err), c)
 		return
 	}
 	user, err := service.UserServiceApp.Register(req)
