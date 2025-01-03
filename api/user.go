@@ -1,6 +1,8 @@
 package api
 
 import (
+	"context"
+	"encoding/json"
 	"errors"
 	"log"
 
@@ -44,6 +46,16 @@ func Login(c *gin.Context) {
 		log.Println("生成token失败: ", err)
 		response.FailWithMessage("生成token失败", c)
 		return
+	}
+	// 将用户信息缓存到`redis`中，对应的操作应该是`HASH`。
+	userJSON, err := json.Marshal(user)
+	if err != nil {
+		log.Println("序列化用户信息失败: ", err)
+		return
+	}
+	err = global.Redis.HSet(context.Background(), "online_user", user.ID, userJSON).Err()
+	if err != nil {
+		log.Println("缓存用户信息失败: ", err)
 	}
 	response.OkWithData(&response.LoginResponse{
 		User:  user,

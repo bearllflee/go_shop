@@ -5,6 +5,7 @@ import (
 
 	"github.com/bearllflee/go_shop/global"
 	"github.com/bearllflee/go_shop/model"
+	"github.com/redis/go-redis/v9"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -12,6 +13,8 @@ import (
 func AutoMigrate(db *gorm.DB) error {
 	return db.AutoMigrate(
 		&model.User{},
+		&model.Role{},
+		&model.OperationRecord{},
 	)
 }
 
@@ -24,4 +27,13 @@ func MustInitDB() {
 		panic(err)
 	}
 	global.DB = db
+}
+
+func MustInitRedis() {
+	redisConf := global.CONFIG.Redis
+	global.Redis = redis.NewClient(&redis.Options{
+		Addr:     fmt.Sprintf("%s:%d", redisConf.Host, redisConf.Port),
+		Password: redisConf.Password,
+		DB:       redisConf.DB,
+	})
 }

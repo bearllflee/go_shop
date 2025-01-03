@@ -9,6 +9,7 @@ func main() {
 	initialize.MustConfig()
 	initialize.MustInitDB()
 	initialize.AutoMigrate(global.DB)
+	initialize.MustInitRedis()
 	initialize.MustRunWindowServer()
 	// fmt.Println(global.CONFIG)
 }
