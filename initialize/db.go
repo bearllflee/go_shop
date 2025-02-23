@@ -1,7 +1,9 @@
 package initialize
 
 import (
+	"database/sql"
 	"fmt"
+	"time"
 
 	"github.com/bearllflee/go_shop/global"
 	"github.com/bearllflee/go_shop/model"
@@ -19,10 +21,16 @@ func AutoMigrate(db *gorm.DB) error {
 }
 
 func MustInitDB() {
-	mysqlConf := global.CONFIG.MySQL
-	dataSource := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?%s", mysqlConf.User, mysqlConf.Password, mysqlConf.Host, mysqlConf.Port, mysqlConf.Database, mysqlConf.Config)
-	fmt.Println(dataSource)
-	db, err := gorm.Open(mysql.Open(dataSource))
+	sqlDB, err := sql.Open("mysql", "root:root@tcp(localhost:3306)/test?charset=utf8mb4&parseTime=True&loc=Local")
+	if err != nil {
+		panic(err)
+	}
+	sqlDB.SetMaxOpenConns(100)
+	sqlDB.SetMaxIdleConns(10)
+	sqlDB.SetConnMaxLifetime(time.Hour)
+	db, err := gorm.Open(mysql.New(mysql.Config{
+		Conn: sqlDB,
+	}))
 	if err != nil {
 		panic(err)
 	}

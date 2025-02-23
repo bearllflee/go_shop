@@ -8,8 +8,7 @@ import (
 
 var UserServiceApp = new(UserService)
 
-type UserService struct {
-}
+type UserService struct{}
 
 func (u *UserService) Login(req request.UserLoginRequest) (*model.User, error) {
 	var user model.User

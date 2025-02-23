@@ -6,8 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type UserGroup struct {
-}
+type UserGroup struct{}
 
 func (u *UserGroup) InitUserRouters(engine *gin.Engine) {
 	userRouters := engine.Group("user")

@@ -9,5 +9,4 @@ func ClearOperationRecord(cronString string) {
 	global.Cron.AddFunc(cronString, func() {
 		task.ClearOperationRecord()
 	})
-	
 }

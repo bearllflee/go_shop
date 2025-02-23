@@ -14,25 +14,18 @@ func (operationRecordService *OperationRecordService) CreateOperationRecord(Oper
 	return err
 }
 
-
 // 物理删除
 func (operationRecordService *OperationRecordService) DeleteOperationRecordByIds(ids []uint) (err error) {
 	err = global.DB.Unscoped().Delete(&[]model.OperationRecord{}, "id in (?)", ids).Error
 	return err
 }
 
-
-
 func (operationRecordService *OperationRecordService) DeleteOperationRecord(OperationRecord model.OperationRecord) (err error) {
 	err = global.DB.Delete(&OperationRecord).Error
 	return err
 }
 
-
 func (operationRecordService *OperationRecordService) GetOperationRecord(id uint) (OperationRecord model.OperationRecord, err error) {
 	err = global.DB.Where("id = ?", id).First(&OperationRecord).Error
 	return
 }
-
-
-

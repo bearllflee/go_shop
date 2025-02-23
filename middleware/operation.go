@@ -20,8 +20,10 @@ import (
 
 var operationRecordService = service.OperationRecordServiceApp
 
-var respPool sync.Pool
-var bufferSize = 1024
+var (
+	respPool   sync.Pool
+	bufferSize = 1024
+)
 
 func init() {
 	respPool.New = func() interface{} {

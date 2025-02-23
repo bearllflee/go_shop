@@ -38,7 +38,7 @@ func Login(c *gin.Context) {
 	// 生成token
 	jwt := utils.NewJwt()
 	claims := jwt.CreateClaims(model.BaseClaims{
-		UserId:       user.ID,
+		UserId:   user.ID,
 		Username: user.Username,
 	})
 	token, err := jwt.GenerateToken(&claims)

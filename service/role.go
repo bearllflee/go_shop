@@ -8,8 +8,7 @@ import (
 
 var RoleServiceApp = new(RoleService)
 
-type RoleService struct {
-}
+type RoleService struct{}
 
 func (r *RoleService) RoleList(req request.RoleListRequest) (total int64, list []*model.Role, err error) {
 	db := global.DB.Model(&model.Role{})

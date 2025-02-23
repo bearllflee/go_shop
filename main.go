@@ -1,6 +1,8 @@
 package main
 
 import (
+	_ "net/http/pprof"
+
 	"github.com/bearllflee/go_shop/global"
 	"github.com/bearllflee/go_shop/initialize"
 )
@@ -11,5 +13,4 @@ func main() {
 	initialize.AutoMigrate(global.DB)
 	initialize.MustInitRedis()
 	initialize.MustRunWindowServer()
-	// fmt.Println(global.CONFIG)
 }

@@ -46,7 +46,7 @@ func defineTranslator() {
 	universalTranslator := ut.New(zh.New())
 	// 具体验证引擎
 	validate := binding.Validator.Engine().(*validator.Validate)
-	translator, _ = universalTranslator.GetTranslator("zh")	
+	translator, _ = universalTranslator.GetTranslator("zh")
 	err := zhTranslations.RegisterDefaultTranslations(validate, translator)
 	if err != nil {
 		panic(err)

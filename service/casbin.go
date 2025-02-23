@@ -10,13 +10,12 @@ import (
 )
 
 // 空结构体可以作为方法的接收者，通常用于表示某些服务方法的实现。
-type CasbinService struct {
-}
+type CasbinService struct{}
 
 var CasbinServiceApp = new(CasbinService)
 
 func (receiver *CasbinService) AddPolicy(sub, obj, act string) error {
-	var policy = gormadapter.CasbinRule{
+	policy := gormadapter.CasbinRule{
 		Ptype: "p",
 		V0:    sub,
 		V1:    obj,
