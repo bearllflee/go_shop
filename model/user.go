@@ -4,7 +4,7 @@ import "github.com/bearllflee/go_shop/global"
 
 type User struct {
 	global.GSModel
-	Username  string  `json:"userName" gorm:"index;comment:用户登录名"`
+	Username  string  `json:"userName" gorm:"uniqueIndex;comment:用户登录名;type:varchar(64)"`
 	Password  string  `json:"-"  gorm:"comment:用户登录密码"`
 	NickName  string  `json:"nickName" gorm:"default:系统用户;comment:用户昵称"`
 	HeaderImg string  `json:"headerImg" gorm:"default:https://qmplusimg.henrongyi.top/gva_header.jpg;comment:用户头像"`

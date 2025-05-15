@@ -8,7 +8,7 @@ import (
 
 var operationRecordService = service.OperationRecordServiceApp
 
-func ClearOperationRecord() {
+func ClearOperationRecord() error {
 	var ids []uint
 	var records []model.OperationRecord
 	// 按创建时间升序排序
@@ -16,5 +16,5 @@ func ClearOperationRecord() {
 	for _, record := range records {
 		ids = append(ids, uint(record.ID))
 	}
-	operationRecordService.DeleteOperationRecordByIds(ids)
+	return operationRecordService.DeleteOperationRecordByIds(ids)
 }

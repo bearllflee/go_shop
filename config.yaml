@@ -16,3 +16,10 @@ Redis:
   Port: 6379
   Password: ""
   DB: 0
+Logger:
+  Level: info
+  Direcotr: logs
+  Layout: 2006-01-02 15-04
+Kafka:
+  Host: 127.0.0.1
+  Port: 9092

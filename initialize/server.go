@@ -2,6 +2,7 @@ package initialize
 
 import (
 	"fmt"
+	"go.uber.org/zap"
 	"net/http"
 	"runtime"
 
@@ -26,6 +27,8 @@ func MustRunWindowServer() {
 
 	address := fmt.Sprintf(":%d", global.CONFIG.App.Port)
 	fmt.Println("启动服务器，监听端口：", address)
+	global.Logger.Info("启动服务器", zap.String("address", address))
+	global.Logger.Error("启动服务器", zap.String("address", address))
 	go func() {
 		pprofAddress := ":6060" // 或者其他你想要的端口
 		fmt.Println("启动 pprof 服务，监听端口：", pprofAddress)

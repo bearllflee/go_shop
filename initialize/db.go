@@ -17,11 +17,12 @@ func AutoMigrate(db *gorm.DB) error {
 		&model.User{},
 		&model.Role{},
 		&model.OperationRecord{},
+		&model.Subject{},
 	)
 }
 
 func MustInitDB() {
-	sqlDB, err := sql.Open("mysql", "root:root@tcp(localhost:3306)/test?charset=utf8mb4&parseTime=True&loc=Local")
+	sqlDB, err := sql.Open("mysql", "root:292378@tcp(localhost:3306)/go_shop?charset=utf8mb4&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err)
 	}
